@@ -116,7 +116,7 @@ class MazeSolver
 	}
 
 	//other base case(s)...
-	else if ( !(onPath)  ) {
+	else if ( !(onPath(x,y))  ) {
 	    return;
 	}
 
@@ -128,6 +128,12 @@ class MazeSolver
 	//recursive reduction
 	else {
 	    maze[x][y] = '.';
+	    solve(x + 1, y);
+	    solve(x - 1, y);
+	    solve(x , y + 1);
+	    solve(x , y - 1);
+
+	    maze[x][y] = PATH;
 	    System.out.println( this );
 	}
     }
