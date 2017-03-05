@@ -1,4 +1,10 @@
 /***
+ * Minotaur: Jennifer Yu, Jason Lam, Bryan Chan
+ * APCS2 Period 5
+ * HW #11: Thinkers of the Corn
+ * 2017-03-03
+***/
+/***
  * SKELETON for class 
  * MazeSolver
  * Implements a blind depth-first exit-finding algorithm.
@@ -9,7 +15,11 @@
  * (mazefile is ASCII representation of maze, using symbols below)
  * 
  * ALGORITHM for finding exit from starting position:
- * 
+ * 1. Hero is dropped in at a random location in the maze (on the path)
+ * 2. Check immediate surroundings (the four boxes to the hero's left, right, front and back). 
+ * 3a. If it's on the path, step onto it, and repeat. 
+ * 3b. If not, then backtrack and mark the box as a visited path. 
+ * 4. If the hero finds an exit in her/his immediate surroundings, return the maze as solved. 
  ***/
 
 //enable file I/O
@@ -113,7 +123,6 @@ class MazeSolver
 	
 	//primary base case
 	if ( solved ) {
-		//System.out.println(this);
 	    System.exit(0);
 	}
 
@@ -136,12 +145,16 @@ class MazeSolver
 
     //accessor method to help with randomized drop-in location
     public boolean onPath( int x, int y) { 
+	//Checks if the hero is off grid before taking an index. 
+	//Implication: no walls need to border the maze.
 	if ((x<0)||(y<0)||(x>maze.length)||(y>maze[0].length)){return false;}
+	//Check if the hero has seen an exit. 
 	else if ( maze[x][y] == EXIT ) {
 	    solved = true;
 	    System.out.println( this );
 	    return false;
 	}
+	//Otherwise, determine if the hero has seen a viable path. 
 	return maze[x][y] == PATH; }
 
 }//end class MazeSolver
@@ -167,7 +180,7 @@ public class Maze
 
 	    //drop hero into the maze (coords must be on path)
 	    //comment next line out when ready to randomize startpos
-	  //  ms.solve( 1,0 ); 
+	    //  ms.solve( 1,0 ); 
 
 	    
 	    //drop our hero into maze at random location on path
