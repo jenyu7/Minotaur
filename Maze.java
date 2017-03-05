@@ -1,7 +1,7 @@
 /***
  * Minotaur: Jennifer Yu, Jason Lam, Bryan Chan
  * APCS2 Period 5
- * HW #11: Thinkers of the Corn
+ * HW #11: Thinkers of the Corn, Do You Hear the People SING!
  * 2017-03-03
 ***/
 /***
