@@ -9,7 +9,7 @@
  * (mazefile is ASCII representation of maze, using symbols below)
  * 
  * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
+ * 
  ***/
 
 //enable file I/O
@@ -77,10 +77,10 @@ class MazeSolver
     public String toString() 
     {
 	//send ANSI code "ESC[0;0H" to place cursor in upper left
-	//String retStr = "[0;0H";  
+	String retStr = "[0;0H";  
 	//emacs shortcut: C-q, then press ESC
 	//emacs shortcut: M-x quoted-insert, then press ESC
-	String retStr = "";
+	//String retStr = "";
 	int i, j;
 	for( i=0; i<h; i++ ) {
 	    for( j=0; j<w; j++ )
@@ -123,13 +123,13 @@ class MazeSolver
 	}
 	//recursive reduction
 	else {
-	    maze[x][y] = VISITED_PATH;
+	    maze[x][y] = HERO;
 		System.out.println( this );
 		solve(x , y + 1);
 	    solve(x , y - 1);
 	    solve(x + 1, y);
 	    solve(x - 1, y);
-	    maze[x][y] = PATH;
+	    maze[x][y] = VISITED_PATH;
 	    //System.out.println( this );
 	}
     }
